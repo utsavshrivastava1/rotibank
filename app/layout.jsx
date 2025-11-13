@@ -1,9 +1,10 @@
-import { Geist, Geist_Mono } from "next/font/google"
+import { Inter, Roboto_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+// ✅ Replaced Geist with Google fonts (Inter & Roboto Mono)
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
+const robotoMono = Roboto_Mono({ subsets: ["latin"], variable: "--font-roboto-mono" })
 
 export const metadata = {
   title: "Koshi Organisation - Help Feed Those in Need",
@@ -31,8 +32,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`font-sans antialiased`}>
+    <html lang="en" className={`${inter.variable} ${robotoMono.variable}`}>
+      <body className="font-sans antialiased">
         {children}
         <Analytics />
       </body>
